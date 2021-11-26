@@ -16,6 +16,7 @@
 		AF1257CF274D144500201AE7 /* ThreeInARowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1257CE274D144500201AE7 /* ThreeInARowTests.swift */; };
 		AF1257D9274D144500201AE7 /* ThreeInARowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1257D8274D144500201AE7 /* ThreeInARowUITests.swift */; };
 		AF1257DB274D144500201AE7 /* ThreeInARowUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1257DA274D144500201AE7 /* ThreeInARowUITestsLaunchTests.swift */; };
+		AF12586A274FD1BB00201AE7 /* WinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF125869274FD1BB00201AE7 /* WinViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		AF1257D4274D144500201AE7 /* ThreeInARowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThreeInARowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF1257D8274D144500201AE7 /* ThreeInARowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeInARowUITests.swift; sourceTree = "<group>"; };
 		AF1257DA274D144500201AE7 /* ThreeInARowUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeInARowUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AF125869274FD1BB00201AE7 /* WinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		AF1257AB274D143900201AE7 = {
 			isa = PBXGroup;
 			children = (
+				AF125869274FD1BB00201AE7 /* WinViewController.swift */,
 				AF1257B6274D143900201AE7 /* ThreeInARow */,
 				AF1257CD274D144500201AE7 /* ThreeInARowTests */,
 				AF1257D7274D144500201AE7 /* ThreeInARowUITests */,
@@ -261,6 +264,7 @@
 				AF1257BC274D143900201AE7 /* ViewController.swift in Sources */,
 				AF1257B8274D143900201AE7 /* AppDelegate.swift in Sources */,
 				AF1257BA274D143900201AE7 /* SceneDelegate.swift in Sources */,
+				AF12586A274FD1BB00201AE7 /* WinViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
