@@ -17,6 +17,7 @@
 		AF1257D9274D144500201AE7 /* ThreeInARowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1257D8274D144500201AE7 /* ThreeInARowUITests.swift */; };
 		AF1257DB274D144500201AE7 /* ThreeInARowUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1257DA274D144500201AE7 /* ThreeInARowUITestsLaunchTests.swift */; };
 		AF12586A274FD1BB00201AE7 /* WinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF125869274FD1BB00201AE7 /* WinViewController.swift */; };
+		AF51B6E32760E5DF00F9BC65 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF51B6E22760E5DF00F9BC65 /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		AF1257D8274D144500201AE7 /* ThreeInARowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeInARowUITests.swift; sourceTree = "<group>"; };
 		AF1257DA274D144500201AE7 /* ThreeInARowUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeInARowUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AF125869274FD1BB00201AE7 /* WinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinViewController.swift; sourceTree = "<group>"; };
+		AF51B6E22760E5DF00F9BC65 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				AF1257B9274D143900201AE7 /* SceneDelegate.swift */,
 				AF1257BB274D143900201AE7 /* ViewController.swift */,
 				AF1257BD274D143900201AE7 /* Main.storyboard */,
+				AF51B6E22760E5DF00F9BC65 /* WelcomeViewController.swift */,
 				AF1257C0274D144400201AE7 /* Assets.xcassets */,
 				AF1257C2274D144400201AE7 /* LaunchScreen.storyboard */,
 				AF1257C5274D144400201AE7 /* Info.plist */,
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF1257BC274D143900201AE7 /* ViewController.swift in Sources */,
+				AF51B6E32760E5DF00F9BC65 /* WelcomeViewController.swift in Sources */,
 				AF1257B8274D143900201AE7 /* AppDelegate.swift in Sources */,
 				AF1257BA274D143900201AE7 /* SceneDelegate.swift in Sources */,
 				AF12586A274FD1BB00201AE7 /* WinViewController.swift in Sources */,
