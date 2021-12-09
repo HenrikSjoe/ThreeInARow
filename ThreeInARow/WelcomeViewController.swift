@@ -27,6 +27,12 @@ class WelcomeViewController: UIViewController {
 
     @IBAction func startGameButton(_ sender: UIButton) {
         
+        if player1Text.text == "" {
+            return
+        } else {
+            performSegue(withIdentifier: startGameVC, sender: self)
+        }
+        
         performSegue(withIdentifier: startGameVC, sender: self)
     }
     

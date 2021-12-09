@@ -46,9 +46,15 @@ class ViewController: UIViewController {
     var p1Victories = 0
     var p2Victories = 0
     var draws = 0
+    var aiPlayer = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if p2 == ""{
+            aiPlayer = true
+            p2 = "AI Bot"
+        }
         
         imageList = [image1, image2, image3, image4, image5, image6, image7, image8, image9]
         
@@ -60,9 +66,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tap(_ sender: UITapGestureRecognizer) {
-        if player1 {label.text = "\(p2)'s turn"
-            
-        } else {label.text = "\(p1)'s turn"}
         
         
         if !gameOver {
@@ -72,9 +75,18 @@ class ViewController: UIViewController {
                         imageView.image = UIImage(named: "kryss")
                         winner()
                         changePlayer()
-                        if !winner(){
-                            ai()
-                        }
+                        
+                        if aiPlayer{
+                            if !winner(){
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [self]  in
+                                    ai()
+                                    if gameOver{
+                                        label.text = "\(p2) won"
+                                    } else {
+                                        label.text = "\(p1)'s turn"
+                                    }
+                                    
+                                })}}
                     } else {
                         imageView.image = UIImage(named: "ring")
                         winner()
@@ -93,6 +105,13 @@ class ViewController: UIViewController {
     
     func changePlayer (){
         player1.toggle()
+        if !gameOver && !draw {
+            if player1 {
+                label.text = "\(p1)'s turn"
+            } else {
+                label.text = "\(p2)'s turn"
+            }
+        }
     }
     
     func isDraw() -> Bool {
@@ -105,7 +124,9 @@ class ViewController: UIViewController {
     }
     
     func winner () -> Bool{
+        
         var hasWon = false
+        
         if image1.image == image2.image && image1.image == image3.image && image1.image != nil{
             gameOver.toggle()
             hasWon.toggle()
@@ -139,30 +160,8 @@ class ViewController: UIViewController {
         return hasWon
     }
     
-    func segueTowin(){
-        if gameOver || draw {
-            performSegue(withIdentifier: segueToWinVC, sender: self)
-            resetBoard()
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == segueToWinVC {
-            let destinationVC = segue.destination as! WinViewController
-            if draw {
-                destinationVC.receivedWinner = "draw"
-            }
-            else if player1 && !draw {
-                destinationVC.receivedWinner = "\(p1) wins"
-            } else if !player1 && !draw  {
-                destinationVC.receivedWinner = "\(p2) wins"
-            }
-        }
-    }
     
     func resetBoard() {
-        imageList = [image1, image2, image3, image4, image5, image6, image7, image8, image9]
-        // DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { [self]  in
         for image in imageList{
             image.image = UIImage?(nil)
             gameOver = false
@@ -171,7 +170,6 @@ class ViewController: UIViewController {
         }
         label.text = "\(p1) goes first"
     }
-    
     
     func ai() {
         
@@ -183,11 +181,9 @@ class ViewController: UIViewController {
                 randomInt = Int.random(in: 0...imageList.count-1)
                 
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [self]  in
-                imageList[randomInt].image = UIImage(named: "ring")
-                winner()
-                player1.toggle()
-            })
+            imageList[randomInt].image = UIImage(named: "ring")
+            winner()
+            player1.toggle()
         }
     }
     
