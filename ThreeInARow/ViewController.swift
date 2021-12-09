@@ -55,13 +55,8 @@ class ViewController: UIViewController {
         label.text = "\(p1) goes first"
         
         reset.isHidden = true
+        
         howManyWins.isHidden = true
-        
-        
-        
-        
-        
-        
     }
     
     @IBAction func tap(_ sender: UITapGestureRecognizer) {
@@ -69,48 +64,26 @@ class ViewController: UIViewController {
             
         } else {label.text = "\(p1)'s turn"}
         
-        // let pos = sender.view.tag
         
         if !gameOver {
             if let imageView = sender.view as? UIImageView {
                 if imageView.image == nil{
                     if player1  {
                         imageView.image = UIImage(named: "kryss")
-                        print("robin")
-                        
+                        winner()
                         changePlayer()
                         if !winner(){
                             ai()
                         }
-                            
-                        
-                        
-                        //changePlayer()
-                        print(imageView.image)
-                        //ai()
                     } else {
                         imageView.image = UIImage(named: "ring")
                         winner()
                         changePlayer()
-                        
                     }
                 }
             }
         }
-//        print(image1.image)
-//        print(image2.image)
-//        print(image3.image)
-//        print(image4.image)
-//        print(image5.image)
-//        print(image6.image)
-//        print(image7.image)
-//        print(image8.image)
-//        print(image9.image)
-        
-      //  count += 1
-        
     }
-    
     
     @IBAction func resetBoard(_ sender: UIButton) {
         resetBoard()
@@ -130,7 +103,6 @@ class ViewController: UIViewController {
         }
         return true
     }
-    
     
     func winner () -> Bool{
         var hasWon = false
@@ -162,12 +134,9 @@ class ViewController: UIViewController {
             draw.toggle()
             hasWon.toggle()
         }
-       
+        
         ifGameOver()
         return hasWon
-        
-        // segueTowin()
-        
     }
     
     func segueTowin(){
@@ -201,42 +170,26 @@ class ViewController: UIViewController {
             draw = false
         }
         label.text = "\(p1) goes first"
-        // count = 0
-        //})
-        
     }
     
     
     func ai() {
-
+        
         if !player1 {
-            //var count = 0
-
-            var randomInt = Int.random(in: 0...8)
-            //var randomImage = imageList[randomInt]
-
+            
+            var randomInt = Int.random(in: 0...imageList.count-1)
+            
             while imageList[randomInt].image != nil {
                 randomInt = Int.random(in: 0...imageList.count-1)
-                //randomImage = imageList[randomInt]
+                
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [self]  in
                 imageList[randomInt].image = UIImage(named: "ring")
                 winner()
-//                print(image1.image)
-//                print(image2.image)
-//                print(image3.image)
-//                print(image4.image)
-//                print(image5.image)
-//                print(image6.image)
-//                print(image7.image)
-//                print(image8.image)
-//                print(image9.image)
                 player1.toggle()
             })
-            //  player1.toggle()
         }
     }
-    
     
     func ifGameOver () {
         
@@ -259,6 +212,5 @@ class ViewController: UIViewController {
             howManyWins.text = "Wins:\n\(p1): \(p1Victories)\n\(p2): \(p2Victories)\nDraws: \(draws)"
             howManyWins.isHidden = false
         }
-        
     }
 }

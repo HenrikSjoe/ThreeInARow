@@ -30,15 +30,11 @@ class WelcomeViewController: UIViewController {
         performSegue(withIdentifier: startGameVC, sender: self)
     }
     
-//    func go (){
-//        performSegue(withIdentifier: startGameVC, sender: self)
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == startGameVC {
             let destinationVC = segue.destination as! ViewController
             destinationVC.p1 = player1Text.text ?? ""
-            destinationVC.p2 = player2Text.text ?? ""
+            destinationVC.p2 = player2Text.text ?? "I am Robot"
         }
     }
 }
