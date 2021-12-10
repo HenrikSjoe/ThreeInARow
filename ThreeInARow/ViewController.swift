@@ -47,6 +47,7 @@ class ViewController: UIViewController {
     var p2Victories = 0
     var draws = 0
     var aiPlayer = false
+    var canTap = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,7 @@ class ViewController: UIViewController {
     
     @IBAction func tap(_ sender: UITapGestureRecognizer) {
         
+        if canTap {
         
         if !gameOver {
             if let imageView = sender.view as? UIImageView {
@@ -75,6 +77,9 @@ class ViewController: UIViewController {
                         imageView.image = UIImage(named: "kryss")
                         winner()
                         changePlayer()
+                        if aiPlayer {
+                            canTap.toggle()
+                        }
                         
                         if aiPlayer{
                             if !winner(){
@@ -94,6 +99,7 @@ class ViewController: UIViewController {
                     }
                 }
             }
+        }
         }
     }
     
@@ -167,6 +173,7 @@ class ViewController: UIViewController {
             gameOver = false
             player1 = true
             draw = false
+            canTap = true
         }
         label.text = "\(p1) goes first"
     }
@@ -184,6 +191,7 @@ class ViewController: UIViewController {
             imageList[randomInt].image = UIImage(named: "ring")
             winner()
             player1.toggle()
+            canTap.toggle()
         }
     }
     
